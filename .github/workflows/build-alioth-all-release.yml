@@ -19,7 +19,7 @@ env:
   CLANG_DOWNLOAD_URL: "https://github.com/Impqxr/aosp_clang_ci/releases/download/13289611/clang-13289611-linux-x86.tar.xz"
   KERNEL_TREE_URL: "https://github.com/VastCore/n0kernel_xiaomi_sm8250"
   ANYKERNEL_URL_ALIOTH: "https://github.com/Impqxr/AKalioth"
-  ANYKERNEL_BRANCH_ALIOTH: main
+  ANYKERNEL_BRANCH_ALIOTH: "main"
 
 jobs:
   cache_clang:
@@ -55,6 +55,7 @@ jobs:
     strategy:
       matrix:
         config:
+          # 仅保留仓库存在的 base 分支，移除所有不存在的bpf/susfs分支
           - name: "KernelSU-Next Only (alioth)"
             KERNEL_DEVICE_CONFIG: "alioth"
             KERNEL_TREE_BRANCH: "base"
@@ -63,28 +64,12 @@ jobs:
             KERNELSU_SETUP_BRANCH: "legacy"
             KERNELSU_PATCHES: ""
 
-          - name: "KernelSU-Next with SuSFS (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test"
-            KERNELSU_NAME: "KSUN"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/Impqxr/KernelSU-Next/refs/heads/legacy-susfs/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "legacy-susfs"
-            KERNELSU_PATCHES: ""
-
           - name: "Rissu's KernelSU Only (alioth)"
             KERNEL_DEVICE_CONFIG: "alioth"
             KERNEL_TREE_BRANCH: "base"
             KERNELSU_NAME: "RKSU"
             KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
             KERNELSU_SETUP_BRANCH: "main"
-            KERNELSU_PATCHES: ""
-
-          - name: "Rissu's KernelSU with SuSFS (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "susfs-v2.0.0-test"
-            KERNELSU_NAME: "RKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/rsuntk/KernelSU/refs/heads/main/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "susfs-rksu-master"
             KERNELSU_PATCHES: ""
 
           - name: "No KSU (alioth)"
