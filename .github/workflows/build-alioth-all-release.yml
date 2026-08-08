@@ -1,4 +1,4 @@
-name: Kernel All Release
+name: Kernel Alioth All Release
 
 on:
   workflow_dispatch:
