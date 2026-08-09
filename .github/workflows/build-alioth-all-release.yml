@@ -72,14 +72,6 @@ jobs:
             KERNELSU_SETUP_BRANCH: "main"
             KERNELSU_PATCHES: ""
 
-          - name: "backslashxx KernelSU Only (alioth)"
-            KERNEL_DEVICE_CONFIG: "alioth"
-            KERNEL_TREE_BRANCH: "base"
-            KERNELSU_NAME: "BKSU"
-            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/backslashxx/KernelSU/refs/heads/master/kernel/setup.sh"
-            KERNELSU_SETUP_BRANCH: "master"
-            KERNELSU_PATCHES: ""
-
           - name: "No KSU (alioth)"
             KERNEL_DEVICE_CONFIG: "alioth"
             KERNEL_TREE_BRANCH: "base"
