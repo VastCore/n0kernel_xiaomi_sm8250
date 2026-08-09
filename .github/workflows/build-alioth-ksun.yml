@@ -35,7 +35,7 @@ on:
         required: false
       ANYKERNEL_ZIP_NAME:
         description: "File name (without .zip extension)"
-        default: "N0Kernel-alioth"
+        default: "Kernel-alioth-KSUN"
         required: false
 
       CLANG_DOWNLOAD_URL:
