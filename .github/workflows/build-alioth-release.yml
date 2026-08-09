@@ -72,6 +72,14 @@ jobs:
             KERNELSU_SETUP_BRANCH: "main"
             KERNELSU_PATCHES: ""
 
+          - name: "tiann KernelSU Only (alioth)"
+            KERNEL_DEVICE_CONFIG: "alioth"
+            KERNEL_TREE_BRANCH: "base"
+            KERNELSU_NAME: "KSU"
+            KERNELSU_SETUP_URL: "https://raw.githubusercontent.com/tiann/KernelSU/refs/heads/main/kernel/setup.sh"
+            KERNELSU_SETUP_BRANCH: "main"
+            KERNELSU_PATCHES: ""
+
           - name: "No KSU (alioth)"
             KERNEL_DEVICE_CONFIG: "alioth"
             KERNEL_TREE_BRANCH: "base"
